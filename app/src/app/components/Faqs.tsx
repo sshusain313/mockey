@@ -2,13 +2,13 @@
 
 export default function FAQSection() {
   return (
-    <section className="px-6 py-12 max-w-4xl mx-auto">
-      <h2 className="text-3xl font-bold mb-12">FAQs</h2>
+    <section className="px-6 py-12 max-w-6xl mx-auto">
+      <h2 className="text-4xl font-bold mb-12">FAQs</h2>
 
       {faqData.map((faq, idx) => (
         <div key={idx} className="mb-12">
-          <div className="flex items-start gap-6">
-            <div className="text-3xl font-extrabold text-black">{String(idx + 1).padStart(2, '0')}</div>
+          <div className="flex items-start gap-8">
+            <div className="text-4xl font-extrabold text-black">{String(idx + 1).padStart(2, '0')}</div>
             <div>
               <h3 className="text-xl font-semibold mb-2">{faq.question}</h3>
               <p className="text-gray-700 whitespace-pre-line" dangerouslySetInnerHTML={{ __html: faq.answer }}></p>

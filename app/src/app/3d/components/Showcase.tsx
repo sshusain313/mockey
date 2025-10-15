@@ -1,4 +1,6 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { ChevronDown } from 'lucide-react';
 import Faqs from './Faqs';
@@ -14,39 +16,91 @@ import {
 } from "@/components/ui/navigation-menu";
 
 const MockupsShowcase = () => {
-  // Categories for the sidebar
+  // Categories and subcategories for the sidebar
   const categories = [
-    "ALL MOCKUPS",
-    "APPAREL",
-    "HOME AND LIVING",
-    "PACKAGING",
-    "PRINT",
-    "TECH",
+    {
+      name: "APPAREL",
+      subcategories: ["Tshirt", "Hoodie"]
+    },
+    {
+      name: "HOME AND LIVING",
+      subcategories: ["Mug", "Can"]
+    },
+    {
+      name: "PACKAGING",
+      subcategories: ["Bottle", "Box", "Pouch", "Tube"]
+    },
+    {
+      name: "PRINT",
+      subcategories: ["Book"]
+    },
+    {
+      name: "TECH",
+      subcategories: ["IPhone"]
+    }
   ];
+
+  // State to track which categories are expanded
+  const [expandedCategories, setExpandedCategories] = React.useState<Record<string, boolean>>({});
+
+  // Toggle category expansion
+  const toggleCategory = (category: string) => {
+    setExpandedCategories(prev => ({
+      ...prev,
+      [category]: !prev[category]
+    }));
+  };
 
   // Example mockup products
   const mockupProducts = [
     { id: 1, image: "/showcase/thumbnail-tshirt-0001.png", name: "Red T-Shirt Mockup" },
     { id: 2, image: "/showcase/thumbnail-polo-tshirt-0001.png", name: "Blue Polo Mockup" },
     { id: 3, image: "/showcase/thumbnail-hoodie-0001.png", name: "Black Hoodie Mockup" },
-    { id: 4, image: "/showcase/mug-preview-thumbnail-002.png", name: "Red T-Shirt Mockup" },
-    { id: 5, image: "/showcase/mug-preview-thumbnail-001.webp", name: "Blue Polo Mockup" },
-    { id: 6, image: "/showcase/dropper_bottle-preview-thumb-001.jpg", name: "Black Hoodie Mockup" },
-    { id: 7, image: "/showcase/can-preview-thumb-001.jpg", name: "Red T-Shirt Mockup" },
-    { id: 8, image: "/showcase/can-preview-thumb-002.jpeg", name: "Blue Polo Mockup" },
-    { id: 9, image: "/showcase/can-preview-thumb-003jpeg", name: "Black Hoodie Mockup" },
+    { id: 4, image: "/showcase/mug-thumbs-002.png", name: "Red T-Shirt Mockup" },
+    { id: 5, image: "/showcase/mug-thumbs-001.webp", name: "Blue Polo Mockup" },
+    { id: 6, image: "/showcase/dropper_bottle-thumbs-001.jpg", name: "Black Hoodie Mockup" },
+    { id: 7, image: "/showcase/can-thumbs-001.webp", name: "Red T-Shirt Mockup" },
+    { id: 8, image: "/showcase/can-thumbs-002.jpeg", name: "Blue Polo Mockup" },
+    { id: 9, image: "/showcase/can-thumbs-003.jpeg", name: "Black Hoodie Mockup" },
+    { id: 10, image: "/showcase/plastic_bottle-thumbs-0001.jpg", name: "Black Hoodie Mockup" },
+    { id: 11, image: "/showcase/box_thumb-0001.jpg", name: "Black Hoodie Mockup" },
+    { id: 12,  image: "/showcase/book-thumb-0001.jpeg", name: "Black Hoodie Mockup" },
+    { id: 13, image: "/showcase/pouch-thumb-001.jpeg", name: "Black Hoodie Mockup" },
+    { id: 14, image: "/showcase/iphone-thumbs-001.jpeg", name: "Black Hoodie Mockup" },
+    { id: 15, image: "/showcase/iphone16-thumb-001.jpg", name: "Black Hoodie Mockup" },
+
   ];
 
   return (
     <div className="flex w-full">
       {/* Left Sidebar */}
-      <aside className="w-64 min-h-screen border-r border-gray-200 bg-white p-4">
+      <aside className="w-64 min-h-screen border-r border-gray-200 bg-gray-50 p-4">
+        <span className='font-sans text-sm leading-5 font-bold tracking-normal text-zinc-900'>All Mockups</span>
         {categories.map((category, index) => (
-          <div key={category} className={`mb-4 ${index === 0 ? "font-bold" : ""}`}>
-            <button className="flex items-center justify-between w-full p-3 text-left border border-gray-200 rounded-md hover:bg-gray-50">
-              {category}
-              {index !== 0 && <ChevronDown size={18} />}
+          <div key={category.name} className={`mb-4 ${index === 0 ? "font-bold" : ""}`}>
+            <button 
+              onClick={() => index !== 0 && toggleCategory(category.name)}
+              className="flex items-center justify-between w-full p-3 text-left border border-gray-200 rounded-md hover:bg-gray-50"
+            >
+              {category.name}
+              {index !== 0 && (
+                <ChevronDown 
+                  size={18} 
+                  className={`transition-transform duration-200 ${expandedCategories[category.name] ? 'transform rotate-180' : ''}`} 
+                />
+              )}
             </button>
+            
+            {/* Subcategories */}
+            {index !== 0 && expandedCategories[category.name] && category.subcategories.length > 0 && (
+              <div className="mt-2 ml-4 space-y-2">
+                {category.subcategories.map((subcategory) => (
+                  <div key={subcategory} className="p-2 hover:bg-gray-50 rounded cursor-pointer">
+                    {subcategory}
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         ))}
       </aside>

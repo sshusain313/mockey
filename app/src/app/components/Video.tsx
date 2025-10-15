@@ -33,7 +33,7 @@ import React from "react";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center justify-start px-4 py-6">
+    <div className=" bg-white flex flex-col items-center justify-start px-4 py-6">
       {/* Heading Section */}
       <div className="w-full max-w-5xl text-center mb-6">
         <h1 className="text-3xl font-bold">

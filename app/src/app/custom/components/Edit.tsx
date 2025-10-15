@@ -5,8 +5,8 @@ import { ChevronDown, Download, Shirt, ShoppingBag, ArrowLeft, ArrowRight } from
 
 const Edit = () => {
   return (
-    <div className="flex flex-col gap-6 items-center w-56 h-screen bg-gray-100">
-  <button className="bg-pink-400 hover:bg-pink-500 text-white px-6 py-2 rounded-lg h-15 shadow text-lg font-medium w-full">
+    <div className="flex flex-col gap-6 items-center w-60 mx-auto pt-10 pb-10 h-screen bg-gray-100">
+  <button className="bg-pink-400 hover:bg-pink-500 mx-auto text-white px-6 py-2 rounded-lg h-15 shadow text-lg font-medium w-full">
     Download <span className="ml-1">▾</span>
   </button>
 

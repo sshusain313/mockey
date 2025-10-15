@@ -69,7 +69,7 @@ export default function FAQSection() {
           </div>
         </div>
         <div className="container mx-auto px-4 mt-10 flex flex-row justify-between items-center text-sm text-gray-400">
-          <Image src="/mockey-logo.svg" alt="Mockey" width={100} height={40} />
+          <Image src="/shelfmerch.png" alt="Mockey" width={100} height={40} />
           <p className="mt-4">© 2025 Mockey.ai All rights reserved.</p>
         </div>
       </footer>

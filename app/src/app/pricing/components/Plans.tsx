@@ -71,18 +71,18 @@ import {
   export default function PremiumPage() {
     return (
       <div className="bg-white py-20 px-6">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-black">
+        <div className="max-w-6xl mx-auto text-start">
+          <h2 className="text-4xl md:text-3xl font-bold text-black">
             Experience Mockey AI Magic With Premium Plans
           </h2>
-          <p className="mt-4 text-gray-700 max-w-3xl mx-auto text-sm md:text-base">
+          <p className="mt-4 text-gray-700 max-w-3xl text-md md:text-base">
             Our Pro and Enterprise plans are crafted to cater to all your mockup and
             photography needs. Learn more about what we offer in our premium plans.
           </p>
   
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 text-left">
             {features.map((item, index) => (
-              <div key={index} className="flex items-start gap-4">
+              <div key={index} className="flex flex-col items-start gap-4">
                 <div className="bg-pink-100 text-pink-600 p-2 rounded-full">
                   {item.icon}
                 </div>
@@ -95,7 +95,7 @@ import {
           </div>
   
           <div className="mt-12 flex items-center justify-center text-sm text-gray-600">
-            <Heart className="text-pink-500 mr-2" />
+            <img src="/download.svg" alt="Download Icon" className="w-5 h-5 mr-2" />
             <span>
               Support Mockey AI team – Even a 1-time monthly subscription will help Mockey
               team keep up the good work of giving out 1000s of high quality mockups for free.
@@ -105,4 +105,3 @@ import {
       </div>
     );
   }
-  

@@ -96,9 +96,9 @@ const mockups = [
 
 export default function MockupSection() {
   return (
-    <section className="px-6 py-12 w-2/3 mx-auto bg-white rounded-2xl shadow-sm text-center">
-      <h2 className="text-2xl font-bold mb-2">Free Mockups For Every Use Case</h2>
-      <p className="mb-8 text-center max-w-2xl text-gray-600">
+    <section className="px-6 py-12 w-2/3 mx-auto bg-white rounded-2xl text-center">
+      <h2 className="text-3xl font-bold mb-2 text-start">Free Mockups For Every Use Case</h2>
+      <p className="mb-8 text-start max-w-3xl text-gray-600">
         Be it t-shirt, hoodie, sticker, or you need a custom mockups as per your unique needs, we got you covered
         with thousands of free design templates! Signup for <span className="text-pink-500">Mockey Enterprise</span> to get custom templates on demand.
       </p>

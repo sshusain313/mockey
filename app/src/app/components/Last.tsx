@@ -8,9 +8,9 @@ export default function FAQSection() {
     <>
       {/* CTA Video Section */}
       <section className="bg-white py-16">
-        <div className="container w-1/2 mx-auto px-4 flex flex-col md:flex-row items-center justify-between rounded-3xl bg-gray-100 overflow-hidden">
-          <div className="p-8 md:w-1/2">
-            <h3 className="text-2xl font-bold mb-4">Give it a try!</h3>
+        <div className="container mx-auto max-w-6xl px-4 flex flex-col md:flex-row items-center justify-between rounded-3xl bg-gray-100 overflow-hidden">
+          <div className="p-8 md:w-1/2 flex flex-col items-center justify-center ">
+            <h3 className="font-['Bricolage_Grotesque'] text-[60px] leading-[60px] font-bold text-[#000000] tracking-normal mb-4 gap-2">Give it a try!</h3>
             <button className="bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-4 rounded-full flex items-center gap-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

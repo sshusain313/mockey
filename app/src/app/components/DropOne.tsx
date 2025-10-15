@@ -2,7 +2,7 @@ export default function DropOne() {
     return (
       <div className="bg-[#b1397d] min-h-[300px] flex items-center justify-between px-6 sm:px-12 py-12">
         <div className="max-w-2xl text-white">
-          <h2 className="text-3xl sm:text-4xl font-bold leading-tight mb-4">
+          <h2 className="font-['Bricolage_Grotesque'] text-[60px] leading-[60px] font-[700] text-[#000000] tracking-normal mb-4">
             Mockey AI is trusted by 1M+ designers, photographers, brands, and corporates globally!
           </h2>
           <p className="text-pink-200 text-base sm:text-lg">

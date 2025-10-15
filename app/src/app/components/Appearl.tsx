@@ -1,4 +1,3 @@
-
 // export default function Appearl() {
 //     const steps = [
 //         {
@@ -57,6 +56,8 @@
 
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import { PiImageThin, PiMagicWandThin, PiDownloadSimpleThin } from "react-icons/pi";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -64,49 +65,57 @@ export default function Home() {
       {/* Header Text and Categories */}
       <div className="grid md:grid-cols-2 gap-8 max-w-6xl w-full mb-16">
         <div>
-          <h2 className="text-2xl md:text-3xl font-bold mb-2">We drop weekly mockups</h2>
+          <h2 className="font-['Bricolage_Grotesque'] text-[60px] leading-[60px] font-bold text-[#000000] tracking-normal mb-2">We drop weekly mockups</h2>
           <p className="text-gray-600">
             In the dynamic world of design, stagnation is not an option. Embrace innovation with our updated mockups, meticulously refined and refreshed every week.
           </p>
         </div>
 
         <div className="flex flex-col text-right space-y-1 text-2xl md:text-3xl font-bold">
-          {["Apparel", "Accessories", "Home & Living", "Tech"].map((item) => (
-            <div key={item} className="inline-flex justify-end items-center space-x-2 group hover:text-pink-600 transition">
-              <span>{item}</span>
-              <FaArrowUpRightFromSquare className="text-base opacity-80 group-hover:opacity-100" />
-            </div>
+          {[
+            { name: "Apparel", path: "/apparel/tshirt" },
+            { name: "Accessories", path: "/accessories/totebag" },
+            { name: "Home & Living", path: "/home-living/can" },
+            { name: "Tech", path: "/tech/iphone" }
+          ].map((item) => (
+            <Link href={item.path} key={item.name}>
+              <div className="inline-flex justify-end items-center space-x-2 group hover:text-green-600 transition cursor-pointer">
+                <span>{item.name}</span>
+                <FaArrowUpRightFromSquare className="text-base opacity-80 group-hover:opacity-100" />
+              </div>
+            </Link>
           ))}
         </div>
       </div>
 
       {/* How it Works */}
-      <div className="w-full max-w-6xl">
-        <h2 className="text-xl md:text-2xl font-bold mb-1">How Mockey Works?</h2>
+      <div className="w-full max-w-6xl h-full flex flex-col items-start py-16 px-4">
+        <h2 className="font-['Bricolage_Grotesque'] text-[40px] leading-[60px] font-bold text-[#000000] tracking-normal mb-1">How Mockey Works?</h2>
         <p className="text-gray-600 mb-6">3 Simple Steps to Create AI Mock ups free:</p>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl">
           {/* Step 1 */}
-          <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 text-center">
-            <PiImageThin className="text-pink-400 text-5xl mx-auto mb-4" />
-            <h3 className="font-semibold text-lg mb-2">Upload your design</h3>
+          <div className="bg-gray-50 border border-gray-200 rounded-2xl px-8 py-28 flex flex-col items-center justify-center text-center h-full min-h-[340px]">
+            {/* <PiImageThin className="text-green-400 text-6xl mx-auto mb-6" /> */}
+            <Image src='/upload.svg' alt='download' width={50} height={50} className="text-green-400 text-6xl mx-auto mb-6" />
+            <h3 className="font-semibold text-xl mb-3">Upload your design</h3>
             <p className="text-gray-600 text-sm">
               Upload your designs in PNG or JPG format. Use transparent images for professional mockup images.
             </p>
           </div>
 
           {/* Step 2 */}
-          <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 text-center">
-            <PiMagicWandThin className="text-pink-400 text-5xl mx-auto mb-4" />
-            <h3 className="font-semibold text-lg mb-2">Customise</h3>
+          <div className="bg-gray-50 border border-gray-200 rounded-2xl px-8 py-28 flex flex-col items-center justify-center text-center h-full min-h-[340px]">
+          <Image src='/customize.svg' alt='download' width={50} height={50} className="text-green-400 text-6xl mx-auto mb-6" />
+            <h3 className="font-semibold text-xl mb-3">Customise</h3>
             <p className="text-gray-600 text-sm">
               Use the editor to drag & drop designs, use AI background images, and customize as per your requirements.
             </p>
           </div>
 
           {/* Step 3 */}
-          <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 text-center">
-            <PiDownloadSimpleThin className="text-pink-400 text-5xl mx-auto mb-4" />
+          <div className="bg-gray-50 border border-gray-200 rounded-2xl px-8 py-28 flex flex-col items-center justify-center text-center h-full min-h-[340px]">
+          <Image src='/fownload.svg' alt='download' width={50} height={50} className="text-green-400 text-6xl mx-auto mb-6" />
             <h3 className="font-semibold text-lg mb-2">Download</h3>
             <p className="text-gray-600 text-sm">
               Download free professional mockups for social media, ads, e-commerce, or your project. There’s no limit on free downloads.
