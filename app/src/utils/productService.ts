@@ -1,7 +1,7 @@
 import { IProduct } from '@/models/Product';
 
 // Base product interface without mongoose Document properties
-interface BaseProduct {
+export interface BaseProduct {
   _id: string;
   name: string;
   description: string;
@@ -18,6 +18,7 @@ interface BaseProduct {
     width: number;
     height: number;
   };
+  customShapePoints?: Array<{x: number, y: number}>;
   createdAt: string;
   updatedAt: string;
 }

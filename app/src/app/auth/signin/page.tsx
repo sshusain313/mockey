@@ -46,7 +46,7 @@ export default function SignIn() {
       <div className="max-w-md w-full space-y-8">
         <div>
           <div className="flex justify-center">
-            <Image src="/mockey-logo.svg" alt="Mockey" width={120} height={50} />
+            <Image src="/shelf.png" alt="Mockey" width={120} height={50} />
           </div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
             Sign in to your account
@@ -102,13 +102,13 @@ export default function SignIn() {
             </button>
           </div>
 
-          <div className="flex items-center justify-center">
+          {/* <div className="flex items-center justify-center">
             <div className="border-t border-gray-300 flex-grow mr-3"></div>
             <div className="text-sm text-gray-500">OR</div>
             <div className="border-t border-gray-300 flex-grow ml-3"></div>
-          </div>
+          </div> */}
 
-          <div>
+          {/* <div>
             <button
               type="button"
               onClick={handleGoogleSignIn}
@@ -126,7 +126,7 @@ export default function SignIn() {
                 Sign in with Google
               </span>
             </button>
-          </div>
+          </div> */}
 
           <div className="text-sm text-center">
             <p>Don't have an account? <Link href="/auth/signup" className="font-medium text-black hover:text-gray-800">Sign up</Link></p>

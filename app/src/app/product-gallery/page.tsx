@@ -210,11 +210,11 @@ export default function ProductGalleryPage() {
       </div>
 
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="mb-6">
-          {/* <TabsTrigger value="gallery">Gallery View</TabsTrigger> */}
+        {/* <TabsList className="mb-6">
+          <TabsTrigger value="gallery">Gallery View</TabsTrigger>
           <TabsTrigger value="details">Detailed View</TabsTrigger>
           <TabsTrigger value="table">Table View</TabsTrigger>
-        </TabsList>
+        </TabsList> */}
 
         {/* Gallery View */}
         {/* <TabsContent value="gallery" className="bg-white rounded-lg shadow-md p-4">

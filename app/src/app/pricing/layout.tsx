@@ -1,19 +1,10 @@
+// src/app/pricing/layout.tsx
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
-// import Navbar from "./components/Navbar";
-// import Footer from "./components/Footer";
-// import { Inter } from "next/font/google";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// ✅ Use the objects from the geist package (no function call)
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,10 +13,8 @@ export const metadata: Metadata = {
 
 export default function PricingLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-      {/* <Navbar /> */}
+    <div className={`${GeistSans.variable} ${GeistMono.variable} antialiased`}>
       {children}
-      {/* <Footer /> */}
     </div>
   );
 }

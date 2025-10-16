@@ -59,7 +59,7 @@ export default function SignUp() {
       <div className="max-w-md w-full space-y-8">
         <div>
           <div className="flex justify-center">
-            <Image src="/mockey-logo.svg" alt="Mockey" width={120} height={50} />
+            <Image src="/shelf.png" alt="Mockey" width={120} height={50} />
           </div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
             Create your account
