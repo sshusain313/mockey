@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "./components/Navbar";
+import dynamic from "next/dynamic";
 import Footer from "./components/Footer";
 import AuthProvider from "./providers/AuthProvider";
+
+const Navbar = dynamic(() => import("./components/Navbar"));
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -29,11 +31,12 @@ export default function RootLayout({
       <body
         className="font-sans antialiased"
       >
+        {/* Scope session context to Navbar only to avoid global client hydration */}
         <AuthProvider>
           <Navbar />
-          {children}
-          <Footer />
         </AuthProvider>
+        {children}
+        <Footer />
       </body>
     </html>
   );

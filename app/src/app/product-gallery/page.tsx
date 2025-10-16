@@ -21,7 +21,7 @@ export default function ProductGalleryPage() {
   const [activeCategory, setActiveCategory] = useState('Blank');
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState('details');
+  const [activeTab, setActiveTab] = useState('table');
   const [containerSizes, setContainerSizes] = useState<{[key: string]: {width: number, height: number}}>({});
   
   // Refs to store container elements
@@ -261,28 +261,7 @@ export default function ProductGalleryPage() {
 
         {/* Detailed View */}
         <TabsContent value="details">
-          {isLoading ? (
-            <div className="flex items-center justify-center h-[600px]">
-              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-900"></div>
-            </div>
-          ) : error ? (
-            <div className="flex items-center justify-center h-[600px]">
-              <div className="text-center p-6">
-                <AlertCircle size={32} className="mx-auto text-red-500 mb-2" />
-                <h2 className="text-xl font-bold text-red-600 mb-2">Error</h2>
-                <p className="text-gray-700">{error}</p>
-              </div>
-            </div>
-          ) : products.length === 0 ? (
-            <div className="flex flex-col items-center justify-center h-[600px] gap-4">
-              <p className="text-gray-500">No products available</p>
-              {/* <CreateProductButton
-                onProductCreated={handleProductCreated}
-                useSimpleForm={true}
-                buttonText="Create Your First Product"
-              /> */}
-            </div>
-          ) : (
+         
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {products.map((product) => (
                 <div key={product._id} className="bg-white rounded-lg shadow-md overflow-hidden">
@@ -417,7 +396,7 @@ export default function ProductGalleryPage() {
                 </div>
               ))}
             </div>
-          )}
+          
         </TabsContent>
 
         {/* Table View */}

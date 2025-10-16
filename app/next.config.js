@@ -7,10 +7,12 @@ const nextConfig = {
     RAZORPAY_ENV: 'test',
   },
   images: {
-    domains: ['res.cloudinary.com', 'lh3.googleusercontent.com'],
+    // Migrate from deprecated `images.domains` to `images.remotePatterns`
+    remotePatterns: [
+      { protocol: 'https', hostname: 'res.cloudinary.com' },
+      { protocol: 'https', hostname: 'lh3.googleusercontent.com' },
+    ],
   },
-  // Updated configuration for external packages
-  serverExternalPackages: ['pdf-lib'],
   // Disable ESLint during build for production
   eslint: {
     ignoreDuringBuilds: true,

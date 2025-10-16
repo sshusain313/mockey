@@ -11,7 +11,7 @@ import ProductSubcategories from '@/components/ProductSubcategories';
 import ProductTags from '@/components/ProductTags';
 import ProductColors from '@/components/ProductColors';
 import ProductImageUpload from '@/components/ProductImageUpload';
-import MockupCanvas from '@/components/MockupCanvas';
+import dynamic from 'next/dynamic';
 import ColorVariantPreview from '@/components/ColorVariantPreview';
 
 // Interface for placeholder with percentage-based positioning
@@ -46,6 +46,16 @@ interface SubcategoryOption {
   label: string;
   category: string;
 }
+
+// Dynamically load MockupCanvas (Konva-based) on client only
+const MockupCanvas = dynamic(() => import('@/components/MockupCanvas'), {
+  ssr: false,
+  loading: () => (
+    <div className="flex items-center justify-center h-40">
+      <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500" />
+    </div>
+  )
+});
 
 const subcategoryOptions: Record<string, SubcategoryOption[]> = {
   apparel: [

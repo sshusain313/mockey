@@ -1,6 +1,6 @@
 'use client';
 
-import Head from 'next/head';
+// Removed next/head; use route metadata instead.
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -255,9 +255,7 @@ export default function NavbarPage() {
 
   return (
     <>
-      <Head>
-        <title>Navbar Clone</title>
-      </Head>
+      {/* Title handled via app/ route metadata */}
       <nav
         className={`sticky top-0 z-40 flex items-center justify-between px-4 md:px-6 py-4 bg-white shadow-sm backdrop-blur-md transition-all duration-300 ${
           scrolled ? 'bg-opacity-80' : 'bg-opacity-100'
@@ -284,7 +282,7 @@ export default function NavbarPage() {
             {/* Products Gallery - only visible to admin users */}
             {session && session.user && session.user.role === 'admin' && (
               <li>
-                <Link href="/product-gallery" className="hover:text-gray-700">
+                <Link prefetch={false} href="/product-gallery" className="hover:text-gray-700">
                   Product Gallery
                 </Link>
               </li>
@@ -659,18 +657,18 @@ export default function NavbarPage() {
 
             {/* Static Links */}
             <li className="cursor-pointer flex items-center gap-1 hover:text-green-500">
-              <Link href='/3d'>3D Mockup</Link>
+              <Link prefetch={false} href='/3d'>3D Mockup</Link>
               <span className="text-white text-xs font-semibold bg-green-500 px-2 py-0.5 rounded-full">coming soon</span>
             </li>
             <li className="cursor-pointer flex items-center gap-1 hover:text-green-500">
-              <Link href='/custom'>Custom Mockup</Link>
+              <Link prefetch={false} href='/custom'>Custom Mockup</Link>
               {/* <span className="text-white text-xs font-semibold bg-pink-500 px-2 py-0.5 rounded-full">NEW</span> */}
             </li>
             <li className="cursor-pointer flex items-center gap-1 hover:text-green-500">
-              <Link href='/vide-mockup'>Video Mockup</Link>
+              <Link prefetch={false} href='/vide-mockup'>Video Mockup</Link>
               <span className="text-white text-xs font-semibold bg-green-500 px-2 py-0.5 rounded-full">coming soon</span>
             </li>
-            <li className="cursor-pointer hover:text-green-500"><Link href='/pricing'>Pricing</Link></li>
+            <li className="cursor-pointer hover:text-green-500"><Link prefetch={false} href='/pricing'>Pricing</Link></li>
           </ul>
         </div>
 
@@ -765,6 +763,7 @@ export default function NavbarPage() {
                 {session && session.user && session.user.role === 'admin' && (
                   <li className="py-2 border-b border-gray-100">
                     <Link 
+                      prefetch={false}
                       href="/product-gallery" 
                       className="block text-gray-800 hover:text-pink-500"
                       onClick={() => setIsMobileMenuOpen(false)}
