@@ -107,11 +107,11 @@ export default function EditProductPage({ params }: { params: Promise<{ id: stri
     // <div className=" max-w-8xl bg-amber-200 mx-auto py-8">
     <div
     style={{ width: '100%', maxWidth: 'none' }}
-    className="bg-white rounded-lg shadow-md p-8 mx-auto my-4"
+    className="bg-white rounded-lg shadow-md mx-auto"
   >
       <div className="flex justify-between items-center mb-6">
         <SubHeader title="Edit Product" showBackButton />
-        {product.colors && product.colors.length > 0 && (
+        {/* {product.colors && product.colors.length > 0 && (
           <Link 
             href={`/admin/products/preview/${productId}`}
             className="px-4 py-2 bg-white border border-indigo-600 text-indigo-600 rounded-md hover:bg-indigo-50 transition-colors flex items-center gap-2"
@@ -119,7 +119,7 @@ export default function EditProductPage({ params }: { params: Promise<{ id: stri
             <Palette className="h-4 w-4" />
             View Color Variants
           </Link>
-        )}
+        )} */}
       </div>
       <ProductForm 
         initialProduct={product as any}

@@ -188,7 +188,7 @@ const ProductColors: React.FC<ProductColorsProps> = ({ colors = [], onColorsChan
       {colors.length > 0 && productImage && (
         <div className="mt-6">
           <div className="border rounded-lg p-4 bg-gray-50">
-            <h3 className="text-lg font-medium mb-4">Color Variants Preview</h3>
+            {/* <h3 className="text-lg font-medium mb-4">Color Variants Preview</h3> */}
             {/* Render the color variant preview component */}
             <ColorVariantPreview 
               productImage={productImage} 

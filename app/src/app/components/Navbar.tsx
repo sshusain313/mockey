@@ -282,7 +282,7 @@ export default function NavbarPage() {
             {/* Products Gallery - only visible to admin users */}
             {session && session.user && session.user.role === 'admin' && (
               <li>
-                <Link prefetch={false} href="/product-gallery" className="hover:text-gray-700">
+                <Link prefetch={false} href="/admin/products" className="hover:text-gray-700">
                   Product Gallery
                 </Link>
               </li>

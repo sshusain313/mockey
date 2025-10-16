@@ -90,7 +90,7 @@ const ColorVariantPreview: React.FC<ColorVariantPreviewProps> = ({
   if (isLoading) {
     return (
       <div className="mt-6 border rounded-lg p-4 bg-gray-50">
-        <h3 className="text-lg font-medium mb-4">Color Variants Preview</h3>
+        {/* <h3 className="text-lg font-medium mb-4">Color Variants Preview</h3> */}
         <div className="flex flex-col items-center space-y-4">
           <div className="w-full aspect-square bg-gray-100 animate-pulse rounded-md"></div>
           <div className="flex space-x-2">
@@ -116,29 +116,6 @@ const ColorVariantPreview: React.FC<ColorVariantPreviewProps> = ({
 
   return (
     <div className="mt-6 border rounded-lg p-4 bg-gray-50">
-      <div className="flex justify-between items-center mb-4">
-        <h3 className="text-lg font-medium">Color Variants Preview</h3>
-        <div className="flex space-x-2">
-          <Button 
-            variant="outline" 
-            size="sm" 
-            onClick={toggleViewMode}
-            className="flex items-center gap-1"
-          >
-            {viewMode === 'carousel' ? (
-              <>
-                <Grid2X2 className="h-4 w-4" />
-                <span className="hidden sm:inline">Grid View</span>
-              </>
-            ) : (
-              <>
-                <ChevronRight className="h-4 w-4" />
-                <span className="hidden sm:inline">Carousel</span>
-              </>
-            )}
-          </Button>
-        </div>
-      </div>
 
       <Tabs defaultValue="preview" className="w-full">
         <TabsList className="grid w-full grid-cols-2 mb-4">
@@ -153,14 +130,15 @@ const ColorVariantPreview: React.FC<ColorVariantPreviewProps> = ({
                 <Dialog>
                   <DialogTrigger asChild>
                     <button 
+                      type="button"
                       className="absolute top-2 right-2 z-10 bg-white rounded-full p-1 shadow-md hover:bg-gray-100"
                       aria-label="View fullscreen"
                     >
                       <Maximize2 className="h-5 w-5" />
                     </button>
                   </DialogTrigger>
-                  <DialogContent className="max-w-4xl">
-                    <div className="relative w-full aspect-square">
+                  <DialogContent className="max-w-3xl bg-white">
+                    <div className="relative w-full aspect-square bg-white border border-black">
                       {selectedColor && coloredImages[selectedColor] ? (
                         <Image
                           src={coloredImages[selectedColor]}
@@ -206,6 +184,7 @@ const ColorVariantPreview: React.FC<ColorVariantPreviewProps> = ({
               {colors.length > 1 && (
                 <div className="absolute inset-y-0 left-0 right-0 flex justify-between items-center pointer-events-none">
                   <Button
+                    type="button"
                     variant="ghost"
                     size="sm"
                     className="h-10 w-10 rounded-full bg-white/80 shadow-md pointer-events-auto"
@@ -215,6 +194,7 @@ const ColorVariantPreview: React.FC<ColorVariantPreviewProps> = ({
                     <span className="sr-only">Previous color</span>
                   </Button>
                   <Button
+                    type="button"
                     variant="ghost"
                     size="sm"
                     className="h-10 w-10 rounded-full bg-white/80 shadow-md pointer-events-auto"
@@ -242,6 +222,7 @@ const ColorVariantPreview: React.FC<ColorVariantPreviewProps> = ({
                 <div className="flex justify-center mt-4 space-x-2">
                   {colors.map((color, index) => (
                     <button
+                      type="button"
                       key={color}
                       className={`w-3 h-3 rounded-full transition-all ${
                         index === currentIndex ? 'transform scale-125' : 'opacity-60'
