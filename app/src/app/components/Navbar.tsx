@@ -270,7 +270,7 @@ export default function NavbarPage() {
 
           {/* Mobile Menu Toggle Button */}
           <button 
-            className="lg:hidden flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-pink-500 hover:bg-gray-100 focus:outline-none"
+            className="lg:hidden flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-green-500 hover:bg-gray-100 focus:outline-none"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle mobile menu"
           >
@@ -396,7 +396,7 @@ export default function NavbarPage() {
                             <Link href="/accessories/phone-cover">Phone Cover</Link>
                           </li>
                           <li>
-                            <Link href="/accessories/gaming">Gaming Pad</Link>
+                            <Link href="/accessories/gaming-pad">Gaming Pad</Link>
                           </li>
                           <li>
                             <Link href="/accessories/beanie">Beanie</Link>
@@ -662,7 +662,7 @@ export default function NavbarPage() {
             </li>
             <li className="cursor-pointer flex items-center gap-1 hover:text-green-500">
               <Link prefetch={false} href='/custom'>Custom Mockup</Link>
-              {/* <span className="text-white text-xs font-semibold bg-pink-500 px-2 py-0.5 rounded-full">NEW</span> */}
+              {/* <span className="text-white text-xs font-semibold bg-green-500 px-2 py-0.5 rounded-full">NEW</span> */}
             </li>
             <li className="cursor-pointer flex items-center gap-1 hover:text-green-500">
               <Link prefetch={false} href='/vide-mockup'>Video Mockup</Link>
@@ -728,7 +728,7 @@ export default function NavbarPage() {
             <div className="flex items-center justify-between p-4 border-b border-gray-200">
               <div className="text-green-500 text-xl font-bold">
                 <Link href='/' onClick={() => setIsMobileMenuOpen(false)}>
-                  <Image src="/mockey-logo.svg" alt="Mockey" width={80} height={32} />
+                  <Image src="/shelf.png" alt="Mockey" width={80} height={32} />
                 </Link>
               </div>
               <button 
@@ -765,7 +765,7 @@ export default function NavbarPage() {
                     <Link 
                       prefetch={false}
                       href="/product-gallery" 
-                      className="block text-gray-800 hover:text-pink-500"
+                      className="block text-gray-800 hover:text-green-500"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       Product Gallery
@@ -809,7 +809,7 @@ export default function NavbarPage() {
                           <li>
                             <Link 
                               href="/apparel/tshirt" 
-                              className="block hover:text-pink-500"
+                              className="block hover:text-green-500"
                               onClick={() => setIsMobileMenuOpen(false)}
                             >
                               T-Shirt
@@ -818,7 +818,7 @@ export default function NavbarPage() {
                           <li>
                             <Link 
                               href="/apparel/tanktop" 
-                              className="block hover:text-pink-500"
+                              className="block hover:text-green-500"
                               onClick={() => setIsMobileMenuOpen(false)}
                             >
                               Tank Top
@@ -827,7 +827,7 @@ export default function NavbarPage() {
                           <li>
                             <Link 
                               href="/apparel/hoodie" 
-                              className="block hover:text-pink-500"
+                              className="block hover:text-green-500"
                               onClick={() => setIsMobileMenuOpen(false)}
                             >
                               Hoodie
@@ -888,7 +888,7 @@ export default function NavbarPage() {
                 <li className="py-2 border-b border-gray-100">
                   <Link 
                     href="/3d" 
-                    className="block text-gray-800 hover:text-pink-500"
+                    className="block text-gray-800 hover:text-green-500"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     3D Mockup
@@ -898,12 +898,12 @@ export default function NavbarPage() {
                   <div className="flex items-center gap-2">
                     <Link 
                       href="/custom" 
-                      className="block text-gray-800 hover:text-pink-500"
+                      className="block text-gray-800 hover:text-green-500"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       Custom Mockup
                     </Link>
-                    <span className="text-white text-xs font-semibold bg-pink-500 px-2 py-0.5 rounded-full">
+                    <span className="text-white text-xs font-semibold bg-green-500 px-2 py-0.5 rounded-full">
                       NEW
                     </span>
                   </div>
@@ -912,12 +912,12 @@ export default function NavbarPage() {
                   <div className="flex items-center gap-2">
                     <Link 
                       href="/vide-mockup" 
-                      className="block text-gray-800 hover:text-pink-500"
+                      className="block text-gray-800 hover:text-green-500"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       Video Mockup
                     </Link>
-                    <span className="text-white text-xs font-semibold bg-pink-500 px-2 py-0.5 rounded-full">
+                    <span className="text-white text-xs font-semibold bg-green-500 px-2 py-0.5 rounded-full">
                       NEW
                     </span>
                   </div>
@@ -925,7 +925,7 @@ export default function NavbarPage() {
                 <li className="py-2 border-b border-gray-100">
                   <Link 
                     href="/pricing" 
-                    className="block text-gray-800 hover:text-pink-500"
+                    className="block text-gray-800 hover:text-green-500"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Pricing

@@ -364,14 +364,14 @@ const Sidebar = ({
       <div className="mb-6">
         <h3 className="text-sm font-medium uppercase text-gray-900 mb-2">COLOR</h3>
         <div className="space-y-3">
-          <input 
+          {/* <input 
             type="color" 
             value={colorValue} 
             onChange={handleColorChange}
             className="w-full h-10 rounded-md cursor-pointer"
-          />
+          /> */}
           
-          <div className="flex gap-2">
+          {/* <div className="flex gap-2">
             <input 
               type="text" 
               value={newColorInput} 
@@ -386,10 +386,10 @@ const Sidebar = ({
             >
               Add
             </button>
-          </div>
+          </div> */}
           
           <div className="mt-2">
-            <h4 className="text-xs font-medium text-gray-700 mb-2">Saved Colors</h4>
+            {/* <h4 className="text-xs font-medium text-gray-700 mb-2">Saved Colors</h4> */}
             <div className="flex flex-wrap gap-2">
               {colorOptions.map((color, index) => (
                 <div 
@@ -403,7 +403,8 @@ const Sidebar = ({
             </div>
             
             <div className="mt-2 space-y-2">
-              {savedColors.length > 0 ? (
+              {
+              // savedColors.length > 0 ? (
                 savedColors.map((color, index) => (
                   <div key={index} className="flex items-center gap-2 bg-gray-50 p-2 rounded">
                     <div 
@@ -427,9 +428,10 @@ const Sidebar = ({
                     </button>
                   </div>
                 ))
-              ) : (
-                <p className="text-xs text-gray-500">No colors saved yet.</p>
-              )}
+              // ) : (
+              //   <p className="text-xs text-gray-500">No colors saved yet.</p>
+              // )
+              }
             </div>
           </div>
         </div>
@@ -445,7 +447,7 @@ const Sidebar = ({
             title="Reset all wrapping effects"
           >
             <RotateCcw className="h-3 w-3" />
-            <span>Reset</span>
+            {/* <span>Reset</span> */}
           </button>
         </div>
         
@@ -453,11 +455,11 @@ const Sidebar = ({
         <div className="mb-4">
           <div className="flex items-center justify-between mb-1">
             <label className="text-xs text-gray-600">Intensity</label>
-            <div className="flex items-center gap-1">
+            {/* <div className="flex items-center gap-1">
               <div className="w-12 h-6 border border-gray-300 rounded-md flex items-center justify-center text-xs">
                 {warpingValue}%
               </div>
-            </div>
+            </div> */}
           </div>
           <input 
             type="range" 
@@ -470,7 +472,7 @@ const Sidebar = ({
         </div>
         
         {/* Wrapping Direction */}
-        <div className="mb-4">
+        {/* <div className="mb-4">
           <label className="text-xs text-gray-600 block mb-2">Direction</label>
           <div className="grid grid-cols-2 gap-2">
             <button 
@@ -492,10 +494,10 @@ const Sidebar = ({
               Vertical
             </button>
           </div>
-        </div>
+        </div> */}
         
         {/* Wrapping Style */}
-        <div className="mb-4">
+        {/* <div className="mb-4">
           <label className="text-xs text-gray-600 block mb-2">Style</label>
           <div className="grid grid-cols-3 gap-2">
             <button 
@@ -526,10 +528,10 @@ const Sidebar = ({
               Pinch
             </button>
           </div>
-        </div>
+        </div> */}
         
         {/* Advanced Options Toggle */}
-        <div className="mb-2">
+        {/* <div className="mb-2">
           <button 
             onClick={() => setShowAdvancedWrapping(!showAdvancedWrapping)}
             className="flex items-center justify-between w-full px-3 py-2 text-xs text-left text-gray-700 bg-gray-100 rounded-md"
@@ -537,13 +539,13 @@ const Sidebar = ({
             <span>Advanced Options</span>
             <ChevronDown className={`h-4 w-4 transition-transform ${showAdvancedWrapping ? 'transform rotate-180' : ''}`} />
           </button>
-        </div>
+        </div> */}
         
         {/* Advanced Options Panel */}
         {showAdvancedWrapping && (
           <div className="p-3 bg-gray-50 rounded-md mb-2">
             {/* Frequency */}
-            <div className="mb-3">
+            {/* <div className="mb-3">
               <div className="flex items-center justify-between mb-1">
                 <label className="text-xs text-gray-600">Frequency</label>
                 <div className="w-12 h-6 border border-gray-300 rounded-md flex items-center justify-center text-xs bg-white">
@@ -558,10 +560,10 @@ const Sidebar = ({
                 onChange={(e) => setWarpingFrequency(parseInt(e.target.value))}
                 className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
               />
-            </div>
+            </div> */}
             
             {/* Amplitude */}
-            <div className="mb-3">
+            {/* <div className="mb-3">
               <div className="flex items-center justify-between mb-1">
                 <label className="text-xs text-gray-600">Amplitude</label>
                 <div className="w-12 h-6 border border-gray-300 rounded-md flex items-center justify-center text-xs bg-white">
@@ -576,10 +578,10 @@ const Sidebar = ({
                 onChange={(e) => setWarpingAmplitude(parseInt(e.target.value))}
                 className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
               />
-            </div>
+            </div> */}
             
             {/* Phase */}
-            <div>
+            {/* <div>
               <div className="flex items-center justify-between mb-1">
                 <label className="text-xs text-gray-600">Phase</label>
                 <div className="w-12 h-6 border border-gray-300 rounded-md flex items-center justify-center text-xs bg-white">
@@ -594,12 +596,12 @@ const Sidebar = ({
                 onChange={(e) => setWarpingPhase(parseInt(e.target.value))}
                 className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
               />
-            </div>
+            </div> */}
           </div>
         )}
         
         {/* Preview Box */}
-        <div className="border border-gray-300 rounded-md p-3 bg-gray-50">
+        {/* <div className="border border-gray-300 rounded-md p-3 bg-gray-50">
           <div className="text-xs font-medium text-gray-700 mb-2">Preview</div>
           <div className="bg-white border border-gray-200 rounded-md h-24 flex items-center justify-center overflow-hidden">
             <div 
@@ -612,7 +614,7 @@ const Sidebar = ({
               WRAP
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* Rotation Controls Section */}
@@ -749,7 +751,7 @@ const Sidebar = ({
       </div>
 
       {/* Unclip Design Section */}
-      <div className="mb-6">
+      {/* <div className="mb-6">
         <h3 className="text-sm font-medium uppercase text-gray-900 mb-2">UNCLIP DESIGN</h3>
         <div className="flex items-center">
           <div 
@@ -761,7 +763,7 @@ const Sidebar = ({
             ></div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -160,6 +160,7 @@ const ColorVariantPreview: React.FC<ColorVariantPreviewProps> = ({
                         {selectedColor || 'Original'}
                       </Badge>
                     </div>
+                    
                   </DialogContent>
                 </Dialog>
 

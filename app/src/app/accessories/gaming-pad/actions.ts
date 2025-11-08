@@ -48,56 +48,56 @@ function formatProductData(product: any): any {
   };
 }
 
-// Get mock gaming pad products for fallback
+// Get mock cap products for fallback
 function getMockGamingPadProducts() {
   return [
     {
       _id: '1',
-      name: 'RGB Gaming Mouse Pad',
-      description: 'A premium RGB gaming mouse pad with customizable lighting effects.',
+      name: 'Classic Baseball gapingpad',
+      description: 'A classic baseball gapingpad with adjustable strap for a perfect fit.',
       category: 'Accessories',
-      subcategory: 'Gaming Pad',
-      price: 29.99,
-      image: '/products/gaming-pad-rgb.jpg',
-      tags: ['RGB', 'Gaming', 'Mouse Pad', 'Custom'],
-      colors: ['Black'],
+      subcategory: 'gapingpads',
+      price: 19.99,
+      image: '/products/gapingpad-baseball.jpg',
+      tags: ['Baseball', 'Classic', 'Adjustable', 'Casual'],
+      colors: ['Navy'],
       colorVariants: [
         {
-          color: 'Black',
-          hex: '#000000',
-          image: '/products/gaming-pad-rgb.jpg'
+          color: 'Navy',
+          hex: '#000080',
+          image: '/products/gapingpad-baseball.jpg'
         }
       ],
       placeholder: {
         x: 150,
-        y: 150,
-        width: 300,
-        height: 200
+        y: 100,
+        width: 200,
+        height: 150
       },
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString()
     },
     {
       _id: '2',
-      name: 'Extended Gaming Mouse Pad',
-      description: 'An extra-large gaming mouse pad for keyboard and mouse.',
+      name: 'Snapback Cap',
+      description: 'A modern snapback cap with a flat brim and adjustable back.',
       category: 'Accessories',
-      subcategory: 'Gaming Pad',
+      subcategory: 'Caps',
       price: 24.99,
-      image: '/products/gaming-pad-extended.jpg',
-      tags: ['Extended', 'Gaming', 'Mouse Pad', 'Large'],
+      image: '/products/cap-snapback.jpg',
+      tags: ['Snapback', 'Flat Brim', 'Urban', 'Streetwear'],
       colors: ['Black'],
       colorVariants: [
         {
           color: 'Black',
           hex: '#000000',
-          image: '/products/gaming-pad-extended.jpg'
+          image: '/products/cap-snapback.jpg'
         }
       ],
       placeholder: {
         x: 150,
-        y: 150,
-        width: 350,
+        y: 100,
+        width: 200,
         height: 150
       },
       createdAt: new Date().toISOString(),
@@ -105,26 +105,26 @@ function getMockGamingPadProducts() {
     },
     {
       _id: '3',
-      name: 'Pro Gaming Mouse Pad',
-      description: 'A professional gaming mouse pad with precision tracking surface.',
+      name: 'Trucker Cap',
+      description: 'A breathable trucker cap with mesh back panels for ventilation.',
       category: 'Accessories',
-      subcategory: 'Gaming Pad',
-      price: 19.99,
-      image: '/products/gaming-pad-pro.jpg',
-      tags: ['Pro', 'Gaming', 'Mouse Pad', 'Precision'],
+      subcategory: 'Caps',
+      price: 22.99,
+      image: '/products/cap-trucker.jpg',
+      tags: ['Trucker', 'Mesh', 'Breathable', 'Outdoor'],
       colors: ['Red'],
       colorVariants: [
         {
           color: 'Red',
           hex: '#FF0000',
-          image: '/products/gaming-pad-pro.jpg'
+          image: '/products/cap-trucker.jpg'
         }
       ],
       placeholder: {
         x: 150,
-        y: 150,
-        width: 250,
-        height: 250
+        y: 100,
+        width: 200,
+        height: 150
       },
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString()
@@ -133,8 +133,8 @@ function getMockGamingPadProducts() {
 }
 
 /**
- * Fetch only gaming pad products
- * This function specifically filters for products with subcategory related to gaming pads
+ * Fetch only cap products
+ * This function specifically filters for products with subcategory related to caps
  */
 export const getGamingPadProducts = cache(async () => {
   let products = [];
@@ -143,7 +143,7 @@ export const getGamingPadProducts = cache(async () => {
     // Connect to MongoDB
     await dbConnect();
     
-    // Create a query to fetch only gaming pad products
+    // Create a query to fetch only cap products
     const query = {
       // Ensure the product has an image
       image: { $exists: true, $ne: '' },
@@ -152,32 +152,32 @@ export const getGamingPadProducts = cache(async () => {
       'placeholder.y': { $exists: true },
       'placeholder.width': { $exists: true },
       'placeholder.height': { $exists: true },
-      // Filter for gaming pad subcategory (case-insensitive)
+      // Filter for cap subcategory (case-insensitive)
       $or: [
         { subcategory: { $regex: 'gaming pad', $options: 'i' } },
-        { subcategory: { $regex: 'gaming mouse pad', $options: 'i' } },
-        { subcategory: { $regex: 'mouse pad', $options: 'i' } },
-        { subcategory: { $regex: 'mousepad', $options: 'i' } },
-        { subcategory: { $regex: 'gaming mousepad', $options: 'i' } }
+        { subcategory: { $regex: 'gaming pads', $options: 'i' } },
+        { subcategory: { $regex: 'gaming mat', $options: 'i' } },
+        { subcategory: { $regex: 'gaming table', $options: 'i' } },
+        { subcategory: { $regex: 'gaming chair', $options: 'i' } }
       ]
     };
     
-    // Fetch gaming pad products from MongoDB with the specific query
+    // Fetch cap products from MongoDB with the specific query
     const dbProducts = await ProductModel.find(query).sort({ createdAt: -1 });
     
     // Convert MongoDB documents to plain objects
     products = dbProducts.map(product => formatProductData(product));
     
-    console.log(`Server: Fetched ${products.length} gaming pad products with complete data`);
+    console.log(`Server: Fetched ${products.length} cap products with complete data`);
     
-    // If no gaming pad products found in the database, use mock gaming pad data
+    // If no cap products found in the database, use mock cap data
     if (products.length === 0) {
-      console.log('No gaming pad products found in database, using mock gaming pad data');
+      console.log('No cap products found in database, using mock cap data');
       products = getMockGamingPadProducts();
     }
   } catch (error) {
-    console.error('Error fetching gaming pad products:', error);
-    // Use mock gaming pad data as fallback
+    console.error('Error fetching cap products:', error);
+    // Use mock cap data as fallback
     products = getMockGamingPadProducts();
   }
   

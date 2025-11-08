@@ -31,7 +31,7 @@ export default function FaqAccordion() {
   };
 
   return (
-    <div className="max-w-7xl ml-10 mr-20 bg-[#f9fbfd] p-6 rounded-xl border border-gray-200 shadow-sm">
+    <div className="w-full max-w-9xl mx-auto bg-[#f9fbfd] p-2 sm:p-3 rounded-xl border border-gray-200 shadow-sm">
       <h2 className="text-2xl font-bold text-gray-800 mb-4">FAQs on T-Shirt Mockups</h2>
       <div className="divide-y divide-gray-200">
         {faqs.map((faq, index) => (
